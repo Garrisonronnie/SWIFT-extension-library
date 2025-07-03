@@ -44,37 +44,23 @@ animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
-0%, 100% {
-opacity: 1;
-transform: scale(1);
-}
-50% {
-opacity: 0.6;
-transform: scale(1.2);
-}
-}
-
-button {
-padding: 10px 15px;
-margin-top: 20px;
+0%, 100% { opacity: 1; transform: scale(1); }
+50% { opacity: 0.6; transform: scale(1.2); }
 }
 </style>
 </head>
 <body>
-<header>Smart Image Tool Loaded</header>
+<header>🧠 Smart Image Tool Loaded</header>
 <main>
 <div id="badge-container" aria-live="polite" aria-label="User profile badge"></div>
-<button onclick="openMini()">Open Mini Window</button>
-<noscript>
-<p style="color: red;">JavaScript is required to load the Smart Image Tool badge.</p>
-</noscript>
+<button onclick="openMiniWindow()">Open Mini Window</button>
 </main>
 
+<script src="./autoScript.js" defer></script>
 <script>
-function openMini() {
-window.open('index.html', '_blank', 'width=320,height=320');
+function openMiniWindow() {
+window.open('./mini.html', 'MiniWindow', 'width=500,height=400');
 }
 </script>
-<script src="./autoScript.js" defer></script>
 </body>
 </html>
