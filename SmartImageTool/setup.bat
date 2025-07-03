@@ -1,5 +1,6 @@
 @echo off
 cd /d "%~dp0"
+
 echo ===============================
 echo 🧠 SmartImageTool Installer
 echo ===============================
