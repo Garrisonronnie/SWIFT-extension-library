@@ -1,20 +1,17 @@
 const os = require('os');
 
-const allowedUsers = [
-"user1@example.com",
-"user2@example.com",
-"user3@example.com",
-"user4@example.com",
-"user5@example.com",
-"user6@example.com"
+// Add up to 6 approved users/devices
+const allowed = [
+'YOUR_MAC_ADDRESS_1',
+'YOUR_MAC_ADDRESS_2',
+os.userInfo().username,
+os.hostname()
 ];
 
 function isValidUser() {
-const currentUser = os.userInfo().username.toLowerCase();
-const currentDevice = os.hostname().toLowerCase();
-return allowedUsers.some(
-(user) => user.toLowerCase() === currentUser || user.toLowerCase() === currentDevice
-);
+const user = os.userInfo().username;
+const host = os.hostname();
+return allowed.includes(user) || allowed.includes(host);
 }
 
 module.exports = isValidUser;
