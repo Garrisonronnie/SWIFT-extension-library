@@ -1,31 +1,39 @@
-# 🧠 SmartImageTool
+// generateScript.js
+const fs = require('fs');
+const isValidUser = require('./userCheck');
 
-A lightweight tool that allows users to securely inject a verified image badge (profile icon) into any HTML page, with encryption and access control.
+let imageLink = "https://example.com/default-icon.png"; // Fallback
 
----
+try {
+const config = JSON.parse(fs.readFileSync('userImageConfig.json', 'utf8'));
+if (config.customIconURL) imageLink = config.customIconURL;
+} catch (err) {
+console.warn("⚠️ No custom icon found, using default.");
+}
 
-## 🔐 Features
+// Script builder...
+const script = `
+(function() {
+if (${isValidUser()}) {
+const container = document.getElementById('badge-container');
+const img = new Image();
+img.src = "${imageLink}";
+img.style.width = "48px";
+img.style.height = "48px";
+img.style.borderRadius = "50%";
+img.style.boxShadow = "0 0 6px rgba(0,0,0,0.2)";
+img.style.cursor = "pointer";
+img.title = "Verified Profile";
+container.appendChild(img);
 
-- ✅ Custom image/profile icon injection
-- ✅ Encrypted page protection using AES-256-CBC
-- ✅ Access control via device name, username, or MAC
-- ✅ Automatically generates a smart badge script
-- ✅ Works on local HTML pages with Node.js and PowerShell/Terminal
+const dot = document.createElement('div');
+dot.className = "green-dot";
+document.body.appendChild(dot);
+} else {
+console.warn("❌ Not a verified user.");
+}
+})();
+`;
 
----
-
-## ⚙️ Requirements
-
-- Node.js v14+
-- PowerShell (Windows) or Terminal (Mac/Linux)
-- Text editor (VS Code, Notepad++, etc.)
-
----
-
-## 🚀 Setup Instructions
-
-### 1. Clone or Download This Repo
-
-```bash
-git clone https://github.com/Garrisonronnie/SmartImageTool.git
-cd SmartImageTool
+fs.writeFileSync('autoScript.js', script);
+console.log("✅ autoScript.js created.");
