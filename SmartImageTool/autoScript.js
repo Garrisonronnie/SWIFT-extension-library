@@ -1,5 +1,4 @@
-
-(function() {
+function() {
 if (true) {
 // 🧠 Inject profile image into #badge-container (beside Smart Image Tool text)
 const container = document.getElementById('badge-container');
