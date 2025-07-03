@@ -1,39 +1,36 @@
-// generateScript.js
-const fs = require('fs');
-const isValidUser = require('./userCheck');
+# 🧠 SmartImageTool
 
-let imageLink = "https://example.com/default-icon.png"; // Fallback
+A secure image badge tool for universal profiles. Inject a custom icon (e.g., verified badge) into any page, protected by local access and encryption.
 
-try {
-const config = JSON.parse(fs.readFileSync('userImageConfig.json', 'utf8'));
-if (config.customIconURL) imageLink = config.customIconURL;
-} catch (err) {
-console.warn("⚠️ No custom icon found, using default.");
-}
+---
 
-// Script builder...
-const script = `
-(function() {
-if (${isValidUser()}) {
-const container = document.getElementById('badge-container');
-const img = new Image();
-img.src = "${imageLink}";
-img.style.width = "48px";
-img.style.height = "48px";
-img.style.borderRadius = "50%";
-img.style.boxShadow = "0 0 6px rgba(0,0,0,0.2)";
-img.style.cursor = "pointer";
-img.title = "Verified Profile";
-container.appendChild(img);
+## ✅ Features
 
-const dot = document.createElement('div');
-dot.className = "green-dot";
-document.body.appendChild(dot);
-} else {
-console.warn("❌ Not a verified user.");
-}
-})();
-`;
+- 🔐 AES-256-CBC encryption for icon URLs
+- 👤 Custom profile icon support
+- 🖥️ Access control via username or hostname
+- ⚙️ No `npm install` needed — uses built-in Node.js modules
+- 💡 Works on any page (`index.html`) or embedded elsewhere
+- 🔁 Re-runnable with updated profile icons
 
-fs.writeFileSync('autoScript.js', script);
-console.log("✅ autoScript.js created.");
+---
+
+## 🧰 Requirements
+
+- [Node.js (v14+)](https://nodejs.org/en/download)
+- [Git](https://git-scm.com/downloads) *(optional, for cloning repos)*
+- PowerShell (Windows) or Terminal (macOS/Linux)
+
+---
+
+## 🛠 Installation & Setup Steps
+
+### 📁 Option 1: Download ZIP
+
+1. Go to: [https://github.com/Garrisonronnie/SmartImageTool](https://github.com/Garrisonronnie/SmartImageTool)
+2. Click the **[⬇️ Code]** button → **Download ZIP**
+3. Extract the folder to your desktop
+4. Open PowerShell (Windows) or Terminal (macOS/Linux)
+5. Navigate to the extracted folder:
+```bash
+cd path/to/SmartImageTool
