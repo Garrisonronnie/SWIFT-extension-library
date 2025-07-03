@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mini Window</title>
+</head>
+<body style="font-family:sans-serif;text-align:center;margin-top:50px;">
+<h2>Mini Window</h2>
+<div id="mini-badge"></div>
+
+<script>
+const bc = new BroadcastChannel("icon-sync");
+bc.onmessage = (event) => {
+const img = new Image();
+img.src = event.data.iconUrl;
+img.style.width = "48px";
+img.style.height = "48px";
+img.style.borderRadius = "50%";
+document.getElementById("mini-badge").innerHTML = '';
+document.getElementById("mini-badge").appendChild(img);
+};
+</script>
+</body>
+</html>
