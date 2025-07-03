@@ -31,7 +31,6 @@ align-items: center;
 gap: 12px;
 }
 
-/* The green dot style (optional animation) */
 .green-dot {
 position: fixed;
 bottom: 10px;
@@ -54,18 +53,28 @@ opacity: 0.6;
 transform: scale(1.2);
 }
 }
+
+button {
+padding: 10px 15px;
+margin-top: 20px;
+}
 </style>
 </head>
 <body>
-<header>🧠 Smart Image Tool Loaded</header>
-
+<header>Smart Image Tool Loaded</header>
 <main>
 <div id="badge-container" aria-live="polite" aria-label="User profile badge"></div>
+<button onclick="openMini()">Open Mini Window</button>
 <noscript>
 <p style="color: red;">JavaScript is required to load the Smart Image Tool badge.</p>
 </noscript>
 </main>
 
+<script>
+function openMini() {
+window.open('index.html', '_blank', 'width=320,height=320');
+}
+</script>
 <script src="./autoScript.js" defer></script>
 </body>
 </html>
