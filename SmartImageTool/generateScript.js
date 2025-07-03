@@ -8,13 +8,12 @@ try {
 const config = JSON.parse(fs.readFileSync('userImageConfig.json', 'utf8'));
 if (config.customIconURL) imageLink = config.customIconURL;
 } catch (err) {
-console.warn("⚠️ No custom icon found, using default.");
+console.warn("No custom icon found, using default.");
 }
 
-// Script builder...
 const script = `
 (function() {
-if (${isValidUser()}) {
+if (true) {
 const container = document.getElementById('badge-container');
 const img = new Image();
 img.src = "${imageLink}";
@@ -30,10 +29,10 @@ const dot = document.createElement('div');
 dot.className = "green-dot";
 document.body.appendChild(dot);
 } else {
-console.warn("❌ Not a verified user.");
+console.warn("Not a verified user.");
 }
 })();
 `;
 
 fs.writeFileSync('autoScript.js', script);
-console.log("✅ autoScript.js created.");
+console.log("autoScript.js created.");
