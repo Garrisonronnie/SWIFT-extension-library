@@ -1,17 +1,15 @@
 {
-  "name": "smartimagetool",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "crypto": "^1.0.1",
-    "fs": "^0.0.1-security",
-    "os": "^0.1.2"
-  }
+"name": "smartimagetool",
+"version": "1.0.0",
+"main": "generateScript.js",
+"scripts": {
+"start": "node generateScript.js",
+"test": "echo \"Error: no test specified\" && exit 1"
+},
+"keywords": ["image", "tool", "smart"],
+"author": "Ronnie Garrison",
+"license": "MIT",
+"description": "Smart Image Tool using built-in Node.js modules",
+"dependencies": {}
 }
+
