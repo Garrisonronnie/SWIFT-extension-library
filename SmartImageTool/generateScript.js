@@ -1,23 +1,19 @@
+// generateScript.js
 const fs = require('fs');
 const isValidUser = require('./userCheck');
 
-let imageLink = "";
+let imageLink = "https://example.com/default-icon.png"; // Fallback
+
 try {
-const cfg = JSON.parse(fs.readFileSync('userImageConfig.json', 'utf8'));
-imageLink = cfg.customIconURL || '';
-} catch {
-imageLink = '';
+const config = JSON.parse(fs.readFileSync('userImageConfig.json', 'utf8'));
+if (config.customIconURL) imageLink = config.customIconURL;
+} catch (err) {
+console.warn("⚠️ No custom icon found, using default.");
 }
 
-if (!imageLink) {
-console.warn("⚠️ No custom image configured. Run iconSelector.js");
-imageLink = '';
-}
-
-function buildScript() {
+// Script builder...
 const script = `
-(function(){
-function getRandomInt(max) { return Math.floor(Math.random()*max); }
+(function() {
 if (${isValidUser()}) {
 const container = document.getElementById('badge-container');
 const img = new Image();
@@ -29,17 +25,15 @@ img.style.boxShadow = "0 0 6px rgba(0,0,0,0.2)";
 img.style.cursor = "pointer";
 img.title = "Verified Profile";
 container.appendChild(img);
+
 const dot = document.createElement('div');
-dot.style.cssText = "position:fixed;bottom:10px;right:10px;width:12px;height:12px;background:#00ff88;border-radius:50%;z-index:9999;";
+dot.className = "green-dot";
 document.body.appendChild(dot);
-console.log("Random:", getRandomInt(1000));
 } else {
 console.warn("❌ Not a verified user.");
 }
 })();
 `;
-fs.writeFileSync('autoScript.js', script);
-}
 
-buildScript();
-console.log("✅ autoScript.js generated.");
+fs.writeFileSync('autoScript.js', script);
+console.log("✅ autoScript.js created.");
