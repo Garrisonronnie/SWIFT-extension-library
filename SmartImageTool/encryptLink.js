@@ -1,5 +1,4 @@
 const crypto = require('crypto');
-require('dotenv').config(); // Make sure dotenv is installed
 
 const algorithm = 'aes-256-cbc';
 const secret = process.env.ENCRYPTION_SECRET || 'default-secret-key';
