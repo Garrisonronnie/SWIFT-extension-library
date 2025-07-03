@@ -1,15 +1,20 @@
 const os = require('os');
 
 const allowedUsers = [
-'ronniegarrison82@icloud.com',
-os.hostname(),
-os.userInfo().username
+"user1@example.com",
+"user2@example.com",
+"user3@example.com",
+"user4@example.com",
+"user5@example.com",
+"user6@example.com"
 ];
 
 function isValidUser() {
-const current = os.userInfo().username;
-const device = os.hostname();
-return allowedUsers.includes(current) || allowedUsers.includes(device);
+const currentUser = os.userInfo().username.toLowerCase();
+const currentDevice = os.hostname().toLowerCase();
+return allowedUsers.some(
+(user) => user.toLowerCase() === currentUser || user.toLowerCase() === currentDevice
+);
 }
 
 module.exports = isValidUser;
