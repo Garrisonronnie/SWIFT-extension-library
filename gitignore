@@ -1,0 +1,30 @@
+# Xcode
+
+DerivedData/
+build/
+*.xcworkspace
+*.xcuserstate
+*.xcodeproj/project.xcworkspace/
+*.DS_Store
+
+# Swift Package Manager
+
+/.build/
+
+# CocoaPods
+
+Pods/
+
+# Carthage
+
+Carthage/Build/
+
+# Swift Playgrounds
+
+timeline.xctimeline
+playground.xcworkspace
+
+# User-specific settings
+
+*.swiftsourceinfo
+*.swiftsourceinfo.json
