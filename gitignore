@@ -1,4 +1,8 @@
+# ========================
 # Flowkit
+# ========================
+
+# Xcode
 DerivedData/
 build/
 *.xcworkspace
@@ -6,41 +10,144 @@ build/
 *.xcodeproj/project.xcworkspace/
 *.xcodeproj/xcuserdata/
 
+# Swift Package Manager
 .build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods
 Pods/
+
+# Carthage
 Carthage/Build/
+
+# macOS system files
 .DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs & temp files
 *.log
 *.swp
 *.tmp
 *.backup
-
-# Snapplus
-*.xcuserstate
-timeline.xctimeline
-playground.xcworkspace
-*.swiftsourceinfo
-*.swiftsourceinfo.json
-
-# SwiftDDIFF
-*.xcodeproj/
-*.swiftpm/
-Package.resolved
-.AppleDouble
-.LSOverride
-._*
-.Spotlight-V100
-.Trashes
 *.lock
 *.bak
 *.orig
+
+# ========================
+# Snapplus
+# ========================
+
+# Xcode user-specific state
+*.xcuserstate
+
+# Swift Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift source info
+*.swiftsourceinfo
+*.swiftsourceinfo.json
+
+# ========================
+# SwiftDDIFF
+# ========================
+
+*.xcodeproj/
+*.swiftpm/
+Package.resolved
+
+# macOS system files
+._*
+.Spotlight-V100
+.Trashes
+
+# SQLite databases
 *.sqlite
 *.sqlite3
+
+# Node/JS
 node_modules/
+
+# IDE configurations
 .idea/
 .vscode/
 *.code-workspace
+
+# SQL schemas (optional to ignore if generated)
 schemas/*.sql
+
+# Other generated files
+*.o
+*.dylib
+*.so
+*.a
+*.exe
+
+# ========================
+# ERDiagramKit
+# ========================
+
+# Uses general rules above; no extra entries needed
+
+# ========================
+# Combined Rules for Swift & Xcode
+# ========================
+
+# Xcode
+DerivedData/
+build/
+*.xcworkspace
+*.xcuserdatad
+*.xcodeproj/project.xcworkspace/
+*.xcodeproj/xcuserdata/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/Build/
+
+# Swift Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logs & temp
+*.log
+*.swp
+*.tmp
+*.backup
+*.lock
+*.bak
+*.orig
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+
+# Node/JS
+node_modules/
+
+# IDEs
+.idea/
+.vscode/
+*.code-workspace
+
+# SQL schemas
+schemas/*.sql
+
+# Other generated files
 *.o
 *.dylib
 *.so
