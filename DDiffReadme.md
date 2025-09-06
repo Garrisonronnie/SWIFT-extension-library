@@ -52,6 +52,20 @@ CREATE TABLE users (
 ddiff diff old.sql new.sql
 
 ---
+# Compare two schema files
+ddiff diff old.sql new.sql
+
+# Generate migration SQL
+ddiff migrate old.sql new.sql [--dry-run] [--dialect sqlite|postgres|mysql]
+
+# Rollback a migration
+ddiff rollback old.sql new.sql [--table tableName] [--dialect sqlite|postgres|mysql]
+
+# Test migration in-memory (SQLite only)
+ddiff test-migrate old.sql new.sql
+
+# Visualize schema differences
+ddiff visualize old.sql new.sql [--format dot|ascii]
 
 ### **`.gitignore`**
 
