@@ -1,27 +1,53 @@
-# Xcode
+# Swift & Xcode
+.build/
 DerivedData/
-build/
-*.xcworkspace
-*.xcuserdatad
-*.xcodeproj/project.xcworkspace/
-*.xcodeproj/xcuserdata/
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserstate
+*.xcuserdata/
+*.swiftpm/
+Package.resolved
 
 # Swift Package Manager
+.swiftpm/
 .build/
 
-# CocoaPods
-Pods/
-
-# Carthage
-Carthage/Build/
-
-# MacOS
+# macOS system files
 .DS_Store
+.AppleDouble
+.LSOverride
 
-# Logs
-*.log
+# Thumbnails and cache
+._*
+.Spotlight-V100
+.Trashes
 
 # Temporary files
 *.swp
+*.lock
+*.log
 *.tmp
-*.backup
+*.bak
+*.orig
+
+# SQLite databases
+*.sqlite
+*.sqlite3
+
+# Node / JS (if any front-end tooling)
+node_modules/
+
+# IDE configs
+.idea/
+.vscode/
+*.code-workspace
+
+# SQL schemas (optional to ignore if generated)
+schemas/*.sql
+
+# Other generated files
+*.o
+*.dylib
+*.so
+*.a
+*.exe
